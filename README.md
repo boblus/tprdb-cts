@@ -87,12 +87,15 @@ CTS = add_mean_dur(BML12, CTS)
 
 mDur: the mean of durations (of different participants), computed for each source token
 
+**5. export and append**
 
+export the table obtained in step 3 or 4 to local environments or append it to the original translation process data:
 
+```python
+# export
+CTS.to_csv('CTS.csv')
 
-
-
-
-
-
+# append
+BML12_CTS = append_CTS(BML12, CTS)
+```
 
