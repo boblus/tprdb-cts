@@ -1,2 +1,1 @@
-# tprdb-cts
-implementing contextual translation similarity to tprdb
+# Contextual Translation Similarity
