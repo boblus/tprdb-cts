@@ -94,7 +94,6 @@ def add_entropy(ST_table, CTS, feature):
             
         Text = CTS['Text'][i]
         Id = CTS['Id'][i]
-        SToken = CTS['SToken'][i]
 
         for item in ST_table[(ST_table['Text']==Text) & (ST_table['Id']==Id)][feature]:
             output.append(item)
@@ -113,7 +112,6 @@ def add_mean_dur(ST_table, CTS):
             
         Text = CTS['Text'][i]
         Id = CTS['Id'][i]
-        SToken = CTS['SToken'][i]
 
         cum = 0
         for item in ST_table[(ST_table['Text']==Text) & (ST_table['Id']==Id)]['Dur']:
@@ -125,4 +123,27 @@ def add_mean_dur(ST_table, CTS):
     CTS['mDur'] = output
     
     return CTS
+
+
+def append_CTS(ST_table, CTS):
+    
+    euc, cos, mv = [], [], []
+    
+    for i in range(len(ST_table)):
+        
+        Text = ST_table['Text'][i]
+        Id = ST_table['Id'][i]
+
+        for item in CTS[(CTS['Text']==Text) & (CTS['Id']==Id)]['CTS_EUC']:
+            euc.append(item)
+        for item in CTS[(CTS['Text']==Text) & (CTS['Id']==Id)]['CTS_COS']:
+            cos.append(item)
+        for item in CTS[(CTS['Text']==Text) & (CTS['Id']==Id)]['CTS_MV']:
+            mv.append(item)
+    
+    ST_table['CTS_EUC'] = euc
+    ST_table['CTS_COS'] = cos
+    ST_table['CTS_MV'] = mv
+    
+    return ST_table
 
