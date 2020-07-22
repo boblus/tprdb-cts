@@ -16,7 +16,7 @@ See also https://wikipedia2vec.github.io/wikipedia2vec/
 
 |study|SL|TL|participants|source texts|source tokens|target segments|
 |--|--|--|--|--|--|--|
-|BML12|English|Spanish|31|6|847|25937|
+|BML12|English|Spanish|31|6|847|25936|
 
 See also https://sites.google.com/site/centretranslationinnovation/tpr-db/public-studies
 
