@@ -24,14 +24,19 @@ See also https://sites.google.com/site/centretranslationinnovation/tpr-db/public
 
 **1. load pre-trained word vectors and translation process data**
 
+use the wikipedia2vec module to load pre-trained vectors:
+
 ```python
+import pandas as pd
+from wikipedia2vec import Wikipedia2Vec
+
 wiki2vec = Wikipedia2Vec.load('eswiki_20180420_300d.pkl')
 BML12 = pd.read_csv('BML12_ST.csv')
 ```
 
 **2. obtain word vectors for target segments**
 
-use the `merge_ST_TT()` function (see `contextual translation similarity.py`):
+use the `merge_ST_TT()` function (see `contextual translation similarity.py`, the same below):
 
 ```python
 ST_TT = merge_ST_TT(BML12)
@@ -64,12 +69,12 @@ CTS = contextual_translation_similarity(ST_TT)
 
 **4. add other features (optional)**
 
-use `add_entropy()` and `add_mean_dur` functions to add *word translation entropy* (HTra) values and *mean duration* (mDur) to the table obtained in step 3:
+use `add_entropy()` and `add_mean_dur()` functions to add *word translation entropy* (HTra) values and *mean duration* (mDur) to the table obtained in step 3:
 
 ```python
 CTS = add_entropy(BML12, CTS, 'HTra')
 CTS = add_entropy(BML12, CTS, 'HCross')
-CTS = add_mean_dur(BML12, CTS, 'Dur')
+CTS = add_mean_dur(BML12, CTS)
 ```
 
 *Output: pd.DataFrame*
