@@ -6,9 +6,9 @@ This document demonstrates how to implement *Contextual Translation Similarity* 
 
 **1. pre-trained word vectors**
 
-|filename|size|source|dimension|model type|window|
+|filename|size of vocabulary|source|dimension|model type|window|
 |--|--|--|--|--|--|
-|eswiki_20180420_300d.pkl|4.47 GB|Wikipedia (Spanish)|300|skip-gram|5|
+|eswiki_20180420_300d.pkl|1828809|Wikipedia (Spanish)|300|skip-gram|5|
 
 See also https://wikipedia2vec.github.io/wikipedia2vec/
 
