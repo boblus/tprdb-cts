@@ -41,8 +41,8 @@ def contextual_translation_similarity(ST_TT):
                     for y in ST_TT[item]:
                         euc_cum = euc_cum + np.linalg.norm(x - y)
                         cos_cum = cos_cum + spatial.distance.cosine(x, y)
-                euc = -euc_cum / sum(range(len(ST_TT[item])))
-                cos = 1 - cos_cum / (2 * sum(range(len(ST_TT[item]))))
+                euc = euc_cum / sum(range(len(ST_TT[item])))
+                cos = cos_cum / sum(range(len(ST_TT[item])))
                 
                 c = 0
                 for vec in ST_TT[item]:
